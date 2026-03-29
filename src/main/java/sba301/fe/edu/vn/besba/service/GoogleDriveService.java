@@ -36,7 +36,7 @@ public class GoogleDriveService {
     private String refreshToken;
 
     private Drive getDriveService() throws GeneralSecurityException, IOException {
-        // Build Credentials thay vì đọc file JSON
+        // Build Credentials dùng Client ID, Secret và Refresh Token
         UserCredentials credentials = UserCredentials.newBuilder()
                 .setClientId(clientId)
                 .setClientSecret(clientSecret)
