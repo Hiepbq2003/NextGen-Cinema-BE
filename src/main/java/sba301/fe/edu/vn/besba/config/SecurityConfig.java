@@ -88,7 +88,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173", "https://next-gen-cinema-oeed.vercel.app")
+                        .allowedOrigins("http://localhost:5173", "https://next-gen-cinema.vercel.app/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS" , "PATCH")
                         .allowedHeaders("*")
                         .allowCredentials(true);
