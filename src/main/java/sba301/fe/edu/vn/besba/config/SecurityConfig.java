@@ -48,7 +48,8 @@ public class SecurityConfig {
             "/api/seats/public/**",
             "/api/showtimes/public/**",
             "/error",
-            "/api/test-image/**"
+            "/api/test-image/**",
+            "/api/public/health"
     };
 
     @Bean
