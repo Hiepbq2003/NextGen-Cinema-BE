@@ -1,5 +1,7 @@
 package sba301.fe.edu.vn.besba.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,6 +10,8 @@ import sba301.fe.edu.vn.besba.base.BaseResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<BaseResponse<Object>> handleCustomException(CustomException ex) {
@@ -26,7 +30,7 @@ public class GlobalExceptionHandler {
     // Xử lý tất cả các lỗi hệ thống không lường trước được
     @ExceptionHandler(Exception.class)
     public ResponseEntity<BaseResponse<Object>> handleGeneralException(Exception ex) {
-        ex.printStackTrace();
+        logger.error("Lỗi hệ thống không xác định: ", ex);
         return ResponseEntity.status(500)
                 .body(BaseResponse.failure("Lỗi hệ thống không xác định: " + ex.getMessage(), 500));
     }

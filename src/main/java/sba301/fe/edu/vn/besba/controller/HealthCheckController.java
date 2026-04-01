@@ -10,6 +10,6 @@ public class HealthCheckController extends BaseController {
 
     @GetMapping("/api/public/health")
     public BaseResponse<String> healthCheck() {
-        return wrapSuccess("NextGen-Cinema Server is Alive!");
+        return wrapSuccess("ok");
     }
 }
